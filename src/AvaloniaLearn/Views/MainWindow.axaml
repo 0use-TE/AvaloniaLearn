@@ -7,7 +7,8 @@
         x:Class="AvaloniaLearn.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="AvaloniaLearn">
+        Title="AvaloniaLearn"
+		xmlns:ava="using:AvaloniaLearn">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -15,6 +16,39 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<StackPanel>
+		<TabControl>
+			<TabItem Header="TemplateControl">
+				<ava:TemplatedControl1 >
+					<TextBlock Background="Red">Ouse</TextBlock>
+				</ava:TemplatedControl1>
+			</TabItem>
+			<TabItem Header="ItemControl">
+				<ContentControl >
+					<ContentControl.Content>
+						<vm:ItemsControlViewModel></vm:ItemsControlViewModel>
+					</ContentControl.Content>
+				</ContentControl>
+			</TabItem>
+			
+			<TabItem Header="Button" >
+				<ContentControl>
+					<ContentControl.Content>
+						<vm:ButtonViewModel></vm:ButtonViewModel>
+					</ContentControl.Content>
+				</ContentControl>
+			</TabItem>
+
+			<TabItem Header="GridSplitter">
+				<ContentControl Height="300">
+					<ContentControl.Content>
+						<vm:GridSplitterViewModel></vm:GridSplitterViewModel>
+					</ContentControl.Content>
+				</ContentControl>
+			</TabItem>
+
+
+		</TabControl>
+	</StackPanel>
 
 </Window>

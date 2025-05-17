@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:AvaloniaLearn.ViewModels"
+               mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaLearn.Views.ButtonView"
+			 x:DataType="vm:ButtonViewModel">
+	<StackPanel  Spacing="5" Margin="5">
+		<Label FontSize="36" FontWeight="Bold" HorizontalAlignment="Center">Button exercise</Label>
+		
+		<Button>I am a button</Button>
+
+		<ButtonSpinner ButtonSpinnerLocation="Right" ValidSpinDirection="Increase">100</ButtonSpinner>
+		<Separator></Separator>
+		<Grid  RowDefinitions="*,*" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Grid.Row="0">
+				<RadioButton Content="Ouse" GroupName="Name"></RadioButton>
+				<RadioButton Content="Touken" GroupName="Name"></RadioButton>
+				<RadioButton Content="Sus" GroupName="Name"></RadioButton>
+			</StackPanel>
+			<StackPanel Grid.Column="1" Grid.Row="0">
+				<RadioButton Content="Apple" GroupName="Fruits"></RadioButton>
+				<RadioButton Content="Watermelon" GroupName="Fruits"></RadioButton>
+				<RadioButton Content="Pear" GroupName="Fruits"></RadioButton>
+			</StackPanel>
+		</Grid>
+		<Separator></Separator>
+		<RepeatButton Command="{Binding RepeatButton}" >Repeat Button</RepeatButton>
+		<Separator></Separator>
+		<TextBlock TextAlignment="Center">Menu</TextBlock>
+		<Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0">
+			<Button Content="MenuFlyout">
+				<Button.Flyout>
+					<MenuFlyout>
+						<MenuItem Header="Open"/>
+						<MenuItem Header="-"/>
+						<MenuItem Header="Close"/>
+					</MenuFlyout>
+				</Button.Flyout>
+			</Button>
+			</StackPanel>
+			<StackPanel Grid.Column="1">
+				<Button Content="ContextMenu">
+					<TextBox>
+						<TextBox.ContextMenu>
+							<ContextMenu>
+								<MenuItem Header="Copy"></MenuItem>
+								<MenuItem Header="-"></MenuItem>
+								<MenuItem Header="Paste"></MenuItem>
+							</ContextMenu>
+						</TextBox.ContextMenu>
+					</TextBox>
+				</Button>
+			</StackPanel>
+		</Grid>
+		<Separator></Separator>
+		<SplitButton Content="Color">
+			<SplitButton.Flyout>
+				<MenuFlyout >
+						<MenuItem Header="Red"></MenuItem>
+					<MenuItem Header="Blue"></MenuItem>
+					<MenuItem Header="Green"></MenuItem>
+				</MenuFlyout>
+			</SplitButton.Flyout>
+		</SplitButton>
+	</StackPanel>
+</UserControl>
